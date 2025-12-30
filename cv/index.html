@@ -110,7 +110,39 @@
           </span>
           <!--&nbsp;-->
           <span class="md-ellipsis">
-            .software
+            
+            
+            
+            
+            
+            
+            <span id="tw-header"></span>
+            <style>
+              #tw-header { border-right: 0.1em solid currentColor; padding-right: 2px; animation: blink 1.2s step-end infinite; }
+              @keyframes blink { 50% { border-color: transparent; } }
+            </style>
+            <script>
+              (function() {
+                var texts = [".software", ".solutions"];
+                var speed = 100;
+                var pause = 10000;
+                var el = document.getElementById('tw-header');
+                var idx = 0; var charIdx = 0; var isDeleting = false;
+                function type() {
+                  var current = texts[idx];
+                  el.textContent = current.substring(0, charIdx);
+                  if (isDeleting) { charIdx--; } else { charIdx++; }
+                  var delta = isDeleting ? speed / 2 : speed;
+                  if (!isDeleting && charIdx === current.length + 1) {
+                    delta = pause; isDeleting = true; charIdx--;
+                  } else if (isDeleting && charIdx === 0) {
+                    isDeleting = false; idx = (idx + 1) % texts.length; delta = 500;
+                  }
+                  setTimeout(type, delta);
+                }
+                type();
+              })();
+            </script>
           </span>
           
         </div>
@@ -368,24 +400,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sprachen" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sprachen
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#zulassungen" class="md-nav__link">
-    <span class="md-ellipsis">
-      Zulassungen
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#ausbildung" class="md-nav__link">
     <span class="md-ellipsis">
       Ausbildung
@@ -404,9 +418,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#weiterbildung" class="md-nav__link">
+  <a href="#weiterbildungen" class="md-nav__link">
     <span class="md-ellipsis">
-      Weiterbildung
+      Weiterbildungen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zulassungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zulassungen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sprachen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprachen
     </span>
   </a>
   
@@ -498,24 +530,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sprachen" class="md-nav__link">
-    <span class="md-ellipsis">
-      Sprachen
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#zulassungen" class="md-nav__link">
-    <span class="md-ellipsis">
-      Zulassungen
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#ausbildung" class="md-nav__link">
     <span class="md-ellipsis">
       Ausbildung
@@ -534,9 +548,27 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#weiterbildung" class="md-nav__link">
+  <a href="#weiterbildungen" class="md-nav__link">
     <span class="md-ellipsis">
-      Weiterbildung
+      Weiterbildungen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zulassungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Zulassungen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sprachen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprachen
     </span>
   </a>
   
@@ -576,81 +608,110 @@
 <strong>Website:</strong> <a href="https://hildebrand.software">https://hildebrand.software</a></p>
 <h2 id="fachliche-kenntnisse">Fachliche Kenntnisse</h2>
 <ul>
-<li><strong>Programmiersprachen:</strong> <code>C</code> <code>MISRA-C:2012</code> <code>C++</code> <code>Python</code> <code>Java</code> <code>C#</code></li>
-<li><strong>Microcontroller:</strong> <code>Microchip</code> <code>Renesas</code> <code>NXP</code> <code>STM</code> <code>TI</code> <code>ARM-basierte-Controller</code></li>
-<li><strong>Bussysteme:</strong> <code>CAN</code> <code>LIN</code> <code>USB</code> <code>Ethernet</code> <code>UART</code> <code>SPI</code> <code>I²C</code> <code>1-Wire</code></li>
+<li><strong>Programmiersprachen:</strong> <code>C</code> <code>MISRA-C:2012</code> <code>C++</code> <code>Python</code> <code>Java</code></li>
+<li><strong>Mikrocontroller:</strong> <code>Microchip</code> <code>Renesas</code> <code>NXP</code> <code>STM</code> <code>TI</code> <code>Infineon</code> <code>ARM</code></li>
+<li><strong>Kommunikationsschnittstellen:</strong> <code>CAN</code> <code>LIN</code> <code>USB</code> <code>UART</code> <code>SPI</code> <code>I²C</code> <code>1-Wire</code> <code>Ethernet</code> <code>Bluetooth</code></li>
 <li><strong>Plattformen:</strong> <code>Embedded-Systeme</code> <code>Maschinensteuerung</code> <code>Windows</code> <code>Linux</code></li>
-<li><strong>Test:</strong> <code>SonarQube</code> <code>VectorCAST</code> <code>PC-Lint</code> <code>CppCheck</code> <code>Python-Unittest</code> <code>GoogleTest</code></li>
+<li><strong>Test:</strong> <code>SonarQube</code> <code>VectorCAST</code> <code>PC-Lint</code> <code>CppCheck</code> <code>GoogleTest</code> <code>Python-Unittest</code> <code>PyTest</code></li>
 <li><strong>Architektur:</strong> <code>Rhapsody</code> <code>Cameo</code></li>
 <li><strong>Versionskontrolle:</strong> <code>Git</code> <code>SVN</code></li>
 <li><strong>Verwaltung:</strong> <code>Jira</code> <code>Polarion</code></li>
 <li><strong>CI:</strong> <code>GitLab</code> <code>CMake</code> <code>Conda</code></li>
-<li><strong>Dokumentation:</strong> <code>Doxygen</code> <code>MkDocs</code> <code>Latex</code></li>
+<li><strong>Dokumentation:</strong> <code>Doxygen</code> <code>MkDocs</code> <code>LaTeX</code></li>
 <li><strong>Office:</strong> <code>MS Office</code> <code>LibreOffice</code></li>
-</ul>
-<h2 id="sprachen">Sprachen</h2>
-<ul>
-<li><strong><code>Deutsch</code></strong> </li>
-<li><strong><code>Verhandlungssicheres Englisch</code></strong></li>
-</ul>
-<h2 id="zulassungen">Zulassungen</h2>
-<ul>
-<li><strong><code>Ü2-Sicherheitsüberprüfung</code></strong></li>
 </ul>
 <h2 id="ausbildung">Ausbildung</h2>
 <ul>
 <li>
-<p><strong>2001-08 – 2003-07:</strong> Berufsbildende Schule Betzdorf/Kirchen</p>
-<p>Höhere Berufsfachschule für Informatik  <br />
-Schwerpunkt Technische Informatik und Automatisierungstechnik    </p>
+<p><strong>2004-09 - 2010-01:</strong> Universität Siegen<br />
+  Studiengang: Angewandte Informatik - Anwendungsfach Elektrotechnik<br />
+  Diplomarbeit: Bulk-Transfer und Firmware-Update über PLC-Netze<br />
+  Gesamtnote Hauptstudium (D II): 1,5</p>
 </li>
 <li>
-<p><strong>2004-09 – 2010-01:</strong> Universität Siegen</p>
-<p>Studiengang: Angewandte Informatik - Anwendungsfach Elektrotechnik  <br />
-Diplomarbeit: Bulk-Transfer und Firmware-Update über PLC-Netze  <br />
-Gesamtnote Hauptstudium (D II): 1,5    </p>
+<p><strong>2001-08 - 2003-07:</strong> Berufsbildende Schule Betzdorf/Kirchen<br />
+  Höhere Berufsfachschule für Informatik<br />
+  Schwerpunkt Technische Informatik und Automatisierungstechnik</p>
 </li>
 </ul>
 <h2 id="werdegang">Werdegang</h2>
+<h3 id="freiberuflicher-softwareentwickler-seit-2020">Freiberuflicher Softwareentwickler (seit 2020)</h3>
 <ul>
-<li><strong>2006-01 – 2010-01:</strong> ROTH + WEBER GmbH in Niederdreisbach als Werkstudent</li>
-<li><strong>2009-09 – 2009-11:</strong> Renesas Technology Europe GmbH als Diplomant</li>
-<li><strong>2010-02 – 2016-07:</strong> ROTH + WEBER GmbH in Niederdreisbach als Softwareentwickler</li>
-<li><strong>2016-08 – 2019-12:</strong> Thomas Magnete GmbH in Herdorf als Softwareentwickler</li>
-<li><strong>2020-01 - 2020-10:</strong> Rohde &amp; Schwarz SIT GmbH in Stuttgart als Freiberuflicher Softwareentwickler</li>
-<li><strong>2020-10 - 2022-05:</strong> ROTH + WEBER GmbH in Niederdreisbach als Freiberuflicher Softwareentwickler</li>
-<li><strong>2021-03 - 2025-12:</strong> Miele &amp; Cie. KG in Gütersloh als Freiberuflicher Softwareentwickler</li>
-<li><strong>2022-12 - 2023-10:</strong> Thomas Magnete GmbH in Herdorf als Freiberuflicher Softwareentwickler</li>
+<li><strong>2021-03 - 2025-12:</strong> Miele &amp; Cie. KG in Gütersloh</li>
+<li><strong>2022-12 - 2023-10:</strong> Thomas Magnete GmbH in Herdorf</li>
+<li><strong>2020-10 - 2022-05:</strong> ROTH + WEBER GmbH in Niederdreisbach</li>
+<li><strong>2020-01 - 2020-10:</strong> Rohde &amp; Schwarz SIT GmbH in Stuttgart</li>
 </ul>
-<h2 id="weiterbildung">Weiterbildung</h2>
+<h3 id="festanstellung">Festanstellung</h3>
 <ul>
-<li><strong>2007-09:</strong> Xilinx Professional VHDL</li>
-<li><strong>2016-09:</strong> Functional Safety ISO26262 - System, Hardware &amp; Software</li>
-<li><strong>2017-08:</strong> Polarion Basic Training</li>
-<li><strong>2018-03:</strong> VectorCAST C/C++ QuickStart Training</li>
-<li><strong>2018-08:</strong> Willert UML Start-Up Training</li>
-<li><strong>2019-02:</strong> Vector UDS Diagnose &amp; Candela Studio</li>
-<li><strong>2019-09:</strong> Jira Basic Training</li>
-<li><strong>2019-09:</strong> ISTQB Certified Tester Foundation Level</li>
+<li><strong>2016-08 - 2019-12:</strong> Thomas Magnete GmbH in Herdorf als Softwareentwickler</li>
+<li><strong>2010-02 - 2016-07:</strong> ROTH + WEBER GmbH in Niederdreisbach als Softwareentwickler</li>
+</ul>
+<h3 id="studium">Studium</h3>
+<ul>
+<li><strong>2009-09 - 2009-11:</strong> Renesas Technology Europe GmbH als Diplomant</li>
+<li><strong>2006-01 - 2010-01:</strong> ROTH + WEBER GmbH in Niederdreisbach als Werkstudent</li>
+</ul>
+<h2 id="weiterbildungen">Weiterbildungen</h2>
+<ul>
 <li><strong>2019-11:</strong> Willert UML Follow-Up Training</li>
+<li><strong>2019-09:</strong> ISTQB Certified Tester Foundation Level</li>
+<li><strong>2019-09:</strong> Jira Basic Training</li>
+<li><strong>2019-02:</strong> Vector UDS Diagnose &amp; Candela Studio</li>
+<li><strong>2018-08:</strong> Willert UML Start-Up Training</li>
+<li><strong>2018-03:</strong> VectorCAST C/C++ QuickStart Training</li>
+<li><strong>2017-08:</strong> Polarion Basic Training</li>
+<li><strong>2016-09:</strong> Functional Safety ISO26262 - System, Hardware &amp; Software</li>
+<li><strong>2007-09:</strong> Xilinx Professional VHDL</li>
+</ul>
+<h2 id="zulassungen">Zulassungen</h2>
+<ul>
+<li><strong>2020:</strong> Ü2-Sicherheitsüberprüfung</li>
+</ul>
+<h2 id="sprachen">Sprachen</h2>
+<ul>
+<li><strong>Deutsch:</strong> Muttersprache</li>
+<li><strong>Englisch:</strong> Verhandlungssicher</li>
 </ul>
 <h2 id="projekte">Projekte</h2>
-<h3 id="2024-06-2025-05-miele">2024-06 - 2025-05 | Miele</h3>
-<p>Entwicklung einer Embedded-Software für eine Spülmaschine mit Cloud-Anbindung &amp; App-Bedienung.</p>
+<h3 id="2025-06-2025-12-miele">2025-06 - 2025-12 | Miele</h3>
+<p>Entwicklung von Embedded-Software für das Funktionsmuster eines Haushaltsgeräts.</p>
 <h4 id="aufgaben">Aufgaben:</h4>
 <ul>
-<li>Implementierung neuer Software-Komponenten in C++ für die Spülmaschinen-Steuerung</li>
-<li>Integration eines Kamera-Treibers für die Bildaufnahme des Spülmaschinen-Innenraums und Upload der aufgenommenen Bilder in die Cloud</li>
-<li>Implementierung von Unit-Tests mit GoogleTest</li>
-<li>Implementierung von Integrationstests mit PyTest</li>
-<li>Überwachung der Softwarequalität mit SonarQube</li>
+<li>Neuentwicklung von Software-Komponenten in C++</li>
+<li>Implementierung einer REST-Schnittstelle zur Gerätekonfiguration</li>
+<li>Erstellung von Unit-Tests unter Verwendung von GoogleTest</li>
+<li>Kontinuierliche Überwachung der Softwarequalität mit SonarQube</li>
 </ul>
 <h4 id="hardware">Hardware:</h4>
 <ul>
-<li>MCU: STM32U575</li>
-<li>OS: Embedded Linux auf Arm Cortex-M4</li>
+<li>MCU: STM32U575 &amp; Renesas RA6M3 mit EmbOS</li>
 </ul>
 <h4 id="tools">Tools:</h4>
+<ul>
+<li>IDE: Visual Studio Code</li>
+<li>Projektverwaltung: GitLab</li>
+<li>Statische Code-Analyse: SonarQube</li>
+<li>Test-Framework: GoogleTest &amp; PyTest</li>
+</ul>
+<hr />
+<h3 id="2024-06-2025-05-miele">2024-06 - 2025-05 | Miele</h3>
+<p>Entwicklung von Embedded-Software für ein Haushaltsgerät mit Cloud-Anbindung &amp; App-Bedienung.</p>
+<h4 id="aufgaben_1">Aufgaben:</h4>
+<ul>
+<li>Neuentwicklung von Software-Komponenten in C++</li>
+<li>Einbindung eines Kamera-Treibers für die Bildaufnahme des Innenraums</li>
+<li>Erweiterung der Cloud-Anbindung u.a. für Bild-Upload</li>
+<li>Erstellung von Unit-Tests unter Verwendung von GoogleTest</li>
+<li>Realisierung von Integrationstests mit PyTest</li>
+<li>Kontinuierliche Überwachung der Softwarequalität mit SonarQube</li>
+</ul>
+<h4 id="hardware_1">Hardware:</h4>
+<ul>
+<li>MCU: STM32U575 mit EmbOS</li>
+<li>ARM Cortex-M7 mit Embedded Linux</li>
+</ul>
+<h4 id="tools_1">Tools:</h4>
 <ul>
 <li>IDE: Visual Studio</li>
 <li>Projektverwaltung: GitLab</li>
@@ -659,84 +720,84 @@ Gesamtnote Hauptstudium (D II): 1,5    </p>
 </ul>
 <hr />
 <h3 id="2022-12-2023-10-thomas-magnete">2022-12 - 2023-10 | Thomas Magnete</h3>
-<p>Entwicklung einer Embedded-Software für einen Ventil-Prototypen mit LIN-Interface.</p>
-<h4 id="aufgaben_1">Aufgaben:</h4>
+<p>Entwicklung von Embedded-Software für einen Ventilansteuerungs-Prototypen mit LIN-Interface.</p>
+<h4 id="aufgaben_2">Aufgaben:</h4>
 <ul>
-<li>Erweiterung der Software-Architektur in Rhapsody</li>
-<li>Implementierung der Ventilsteuerung als State-Machine in Rhapsody</li>
-<li>Implementierung eines LIN-Stacks für die Kommunikation mit PLIN-LDF-Testumgebung</li>
-<li>Integration &amp; Inbetriebnahme des Built-in-Bootstrap-Loaders</li>
+<li>Ausbau der bestehenden Software-Architektur in Rhapsody</li>
+<li>Umsetzung der Ventilsteuerung als Zustandsautomat (State Machine) in Rhapsody</li>
+<li>Entwicklung eines LIN-Stacks zur Kommunikation mit der PLIN-LDF-Testumgebung</li>
+<li>Integration und Inbetriebnahme des Built-in-Bootstrap-Loaders</li>
 </ul>
-<h4 id="hardware_1">Hardware:</h4>
+<h4 id="hardware_2">Hardware:</h4>
 <ul>
 <li>MCU: Infineon TLE9867</li>
 </ul>
-<h4 id="tools_1">Tools:</h4>
+<h4 id="tools_2">Tools:</h4>
 <ul>
 <li>IDE: Keil µVision5</li>
 <li>Projektverwaltung: GitLab</li>
-<li>Architecture: Rhapsody Architect</li>
+<li>Architektur: Rhapsody Architect</li>
 <li>CAN-Adapter: PEAK PLIN-USB</li>
 </ul>
 <hr />
 <h3 id="2022-09-2024-06-miele">2022-09 - 2024-06 | Miele</h3>
-<p>Entwicklung einer Embedded-Software für eine Bluetooth-Fernbedienung zur Steuerung eines Staubsaugers.</p>
-<h4 id="aufgaben_2">Aufgaben:</h4>
+<p>Entwicklung von Embedded-Software für eine Bluetooth-Fernbedienung.</p>
+<h4 id="aufgaben_3">Aufgaben:</h4>
 <ul>
-<li>Erstellung der Software-Architektur in Cameo</li>
-<li>Implementierung neuer Software-Komponenten in C für die Grundfunktionen der Fernbedienung</li>
-<li>Implementierung neuer Software-Komponenten in C für Bluetooth-Datenübertragung</li>
-<li>Anbindung an ein externes Bluetooth-Kommunikationsmodul und Test der Datenübertragung</li>
-<li>Überwachung der Softwarequalität mit SonarQube</li>
+<li>Konzeption und Erstellung der Software-Architektur in Cameo</li>
+<li>Entwicklung von Software-Komponenten in C für die Kernfunktionen der Fernbedienung</li>
+<li>Realisierung der Bluetooth-Datenübertragung</li>
+<li>Anbindung und Test eines externen Bluetooth-Kommunikationsmoduls</li>
+<li>Sicherstellung der Code-Qualität durch Überwachung in SonarQube</li>
 </ul>
-<h4 id="hardware_2">Hardware:</h4>
+<h4 id="hardware_3">Hardware:</h4>
 <ul>
 <li>MCU: TI CC2651R3SIPA</li>
 </ul>
-<h4 id="tools_2">Tools:</h4>
+<h4 id="tools_3">Tools:</h4>
 <ul>
 <li>IDE: Code Composer Studio</li>
 <li>Projektverwaltung: GitLab</li>
-<li>Architecture: Cameo Systems Modeler</li>
+<li>Architektur: Cameo Systems Modeler</li>
 <li>Statische Code-Analyse: SonarQube</li>
 </ul>
 <hr />
 <h3 id="2021-03-2024-06-miele">2021-03 - 2024-06 | Miele</h3>
-<p>Entwicklung einer Embedded-Software für einen Staubsauger mit Cloud-Anbindung &amp; App-Bedienung.</p>
-<h4 id="aufgaben_3">Aufgaben:</h4>
+<p>Entwicklung von Embedded-Software für ein Haushaltsgerät mit Cloud-Anbindung &amp; App-Bedienung.</p>
+<h4 id="aufgaben_4">Aufgaben:</h4>
 <ul>
-<li>Erstellung der Software-Architektur in Cameo</li>
-<li>Integration von Plattform-Software-Komponenten, u.a. Runtime-Environment mit EmbOS-Betriebssystem</li>
-<li>Integration &amp; Test eines externen Kommunikationsmoduls mit WLAN &amp; Bluetooth-Funktionalität</li>
-<li>Implementierung neuer Software-Komponenten in C++ für die Staubsauger-Steuerung</li>
-<li>Implementierung neuer Software-Komponenten in C++ für die Cloud-Anbindung</li>
-<li>Überwachung der Softwarequalität mit SonarQube</li>
+<li>Entwurf der Software-Architektur in Cameo</li>
+<li>Einbindung von Plattform-Software-Komponenten (u.a. EmbOS-Betriebssystem)</li>
+<li>Integration und Validierung eines externen Kommunikationsmoduls (WLAN &amp; Bluetooth)</li>
+<li>Neuentwicklung von C++-Komponenten für die Steuerungs-Software</li>
+<li>Umsetzung der Cloud-Anbindung in C++</li>
+<li>Kontinuierliche Qualitätssicherung mittels SonarQube</li>
 </ul>
-<h4 id="hardware_3">Hardware:</h4>
+<h4 id="hardware_4">Hardware:</h4>
 <ul>
 <li>MCU: STM32L496 / STM32U575</li>
 </ul>
-<h4 id="tools_3">Tools:</h4>
+<h4 id="tools_4">Tools:</h4>
 <ul>
 <li>IDE: Visual Studio</li>
 <li>Projektverwaltung: GitLab</li>
-<li>Architecture: Cameo Systems Modeler</li>
+<li>Architektur: Cameo Systems Modeler</li>
 <li>Statische Code-Analyse: SonarQube</li>
 </ul>
 <hr />
 <h3 id="2020-10-2022-05-roth-weber">2020-10 - 2022-05 | ROTH + WEBER</h3>
-<p>Entwicklung einer Embedded-Software für ein Farbdruckersystem und Einführung einer Unit-Testumgebung für die Windows-Entwicklungsumgebung und CI-Build-Umgebung.</p>
-<h4 id="aufgaben_4">Aufgaben:</h4>
+<p>Entwicklung von Embedded-Software für ein Farbdruckersystem und Einführung einer Unit-Testumgebung für die Windows-Entwicklungsumgebung und CI-Build-Umgebung.</p>
+<h4 id="aufgaben_5">Aufgaben:</h4>
 <ul>
-<li>Implementierung neuer Software-Komponenten für das Farbdruckersystem in C</li>
-<li>Implementierung einer Unit-Testumgebung basierend auf CMake &amp; GoogleTest</li>
-<li>Integration der Tests in die GitLab-CI-Pipeline</li>
+<li>Entwicklung von Software-Modulen in C für das Farbdruckersystem</li>
+<li>Aufbau einer Unit-Testumgebung auf Basis von CMake &amp; GoogleTest</li>
+<li>Einbindung der automatisierten Tests in die GitLab-CI-Pipeline</li>
 </ul>
-<h4 id="hardware_4">Hardware:</h4>
+<h4 id="hardware_5">Hardware:</h4>
 <ul>
 <li>MCU: NXP LPC178x</li>
 </ul>
-<h4 id="tools_4">Tools:</h4>
+<h4 id="tools_5">Tools:</h4>
 <ul>
 <li>IDE: LPCXpresso IDE</li>
 <li>Projektverwaltung: GitLab</li>
@@ -745,69 +806,68 @@ Gesamtnote Hauptstudium (D II): 1,5    </p>
 <hr />
 <h3 id="2020-01-2020-10-rohde-schwarz-sit">2020-01 - 2020-10 | Rohde &amp; Schwarz SIT</h3>
 <p>Test einer Embedded-Kryptomodul-Software eines Funkgeräts auf Integrationsebene und Weiterentwicklung der vorhandenen Testumgebung.</p>
-<h4 id="aufgaben_5">Aufgaben:</h4>
+<h4 id="aufgaben_6">Aufgaben:</h4>
 <ul>
-<li>Spezifikation von Test-Cases auf Integrationsebene in Python und XML</li>
-<li>Implementierung eines Test-Adapters auf Basis von Apache Thrift in C++</li>
-<li>Portierung &amp; Integration einer vorhandenen C-Bibliothek in die Python-Testumgebung</li>
-<li>Generierung von Testreports in LaTeX</li>
-<li>Integration der Tests in die GitLab-CI-Pipeline</li>
+<li>Spezifikation von Testfällen für Integrationstests in Python und XML</li>
+<li>Entwicklung eines Test-Adapters in C++ auf Basis von Apache Thrift</li>
+<li>Portierung und Einbindung einer C-Bibliothek in die Python-Testumgebung</li>
+<li>Automatisierte Erstellung von Testreports mittels LaTeX</li>
+<li>Integration der Testausführung in die GitLab-CI-Pipeline</li>
 </ul>
-<h4 id="hardware_5">Hardware:</h4>
+<h4 id="hardware_6">Hardware:</h4>
 <ul>
 <li>MCU: NXP i.MX8 ARM</li>
 <li>OS: Embedded Linux</li>
 </ul>
-<h4 id="tools_5">Tools:</h4>
+<h4 id="tools_6">Tools:</h4>
 <ul>
 <li>IDE: Eclipse</li>
 <li>Projektverwaltung: GitLab &amp; Jira</li>
 <li>Test-Framework: Python-Unittest</li>
-<li>Test-Report: Latex</li>
+<li>Test-Report: LaTeX</li>
 </ul>
 <hr />
 <h3 id="2018-07-2019-12-thomas-magnete">2018-07 - 2019-12 | Thomas Magnete</h3>
-<p>Entwicklung einer Embedded-Software mit CAN-Interface zur Ansteuerung eines Schrittmotors.</p>
-<h4 id="aufgaben_6">Aufgaben:</h4>
-<ul>
-<li>Betrachtung der funktionalen Sicherheit gemäß ISO 26262</li>
-<li>Definition von Anforderungen und Testspezifikationen</li>
-<li>Adaptierung vorhandener MCAL-Module</li>
-<li>Implementierung einer Schrittmotoransteuerung in MISRA-C:2012 mit Stromregelung, Positionsregelung und Geschwindigkeitssteuerung</li>
-<li>Implementierung von Sicherheitsfunktionen</li>
-<li>Betreuung eines externen Dienstleisters bei der Entwicklung eines 2-stufigen UDS-Bootloaders</li>
-</ul>
-<h4 id="hardware_6">Hardware:</h4>
-<ul>
-<li>MCU: Microchip dsPIC33CH128MP505</li>
-<li>Driver: TI DRV8703</li>
-</ul>
-<h4 id="tools_6">Tools:</h4>
-<ul>
-<li>IDE: MPLAB X + PICkit 3</li>
-<li>Requirements: Polarion ALM</li>
-<li>Unit-Tests: VectorCAST</li>
-<li>Configuration: EB tresos</li>
-<li>Architecture: Rhapsody Architect</li>
-<li>UDS-Flasher: Vector vFlash</li>
-<li>CAN-Adapter: PEAK PCAN-USB</li>
-<li>CAN-Adapter: Vector VN1610</li>
-</ul>
-<hr />
-<h3 id="2017-02-2017-04-thomas-magnete">2017-02 - 2017-04 | Thomas Magnete</h3>
-<p>Entwicklung einer Embedded-Software für ein UART-Multiplexer-System.</p>
+<p>Entwicklung von Embedded-Software mit CAN-Interface zur Ansteuerung eines Schrittmotors.</p>
 <h4 id="aufgaben_7">Aufgaben:</h4>
 <ul>
-<li>Erstellung der Software-Architektur</li>
-<li>Implementierung eines UART-Moduls für die Kommunikation mit einem SPS-Steuergerät</li>
-<li>Implementierung eines SPI-Moduls für den Zugriff auf 5 angeschlossenen MAX14830-ICs</li>
+<li>Berücksichtigung der funktionalen Sicherheit nach ISO 26262</li>
+<li>Definition von Systemanforderungen und Erstellung von Testspezifikationen</li>
+<li>Anpassung der MCAL-Module (Microcontroller Abstraction Layer)</li>
+<li>Realisierung der Schrittmotoransteuerung (Stromregelung, Positionsregelung, Geschwindigkeitssteuerung) in MISRA-C:2012</li>
+<li>Umsetzung von sicherheitsrelevanten Funktionen</li>
+<li>Technische Betreuung eines externen Dienstleisters bei der Entwicklung eines 2-stufigen UDS-Bootloaders</li>
 </ul>
 <h4 id="hardware_7">Hardware:</h4>
 <ul>
-<li>MCU: Atmel ATxmega32E5</li>
-<li>Peripherals: Maxim MAX14830</li>
+<li>MCU: Microchip dsPIC33CH128MP505</li>
+<li>Treiber: TI DRV8703</li>
 </ul>
 <h4 id="tools_7">Tools:</h4>
+<ul>
+<li>IDE: MPLAB X + PICkit 3</li>
+<li>Anforderungsmanagement: Polarion ALM</li>
+<li>Test-Framework: VectorCAST</li>
+<li>Konfiguration: EB tresos</li>
+<li>Architektur: Rhapsody Architect</li>
+<li>UDS-Flasher: Vector vFlash</li>
+<li>CAN-Adapter: PEAK PCAN-USB &amp; Vector VN1610</li>
+</ul>
+<hr />
+<h3 id="2017-02-2017-04-thomas-magnete">2017-02 - 2017-04 | Thomas Magnete</h3>
+<p>Entwicklung von Embedded-Software für ein UART-Multiplexer-System.</p>
+<h4 id="aufgaben_8">Aufgaben:</h4>
+<ul>
+<li>Entwurf der Software-Architektur</li>
+<li>Entwicklung eines UART-Moduls zur Kommunikation mit einer SPS-Steuerung</li>
+<li>Implementierung eines SPI-Moduls zum Zugriff auf 5 externe MAX14830-ICs</li>
+</ul>
+<h4 id="hardware_8">Hardware:</h4>
+<ul>
+<li>MCU: Atmel ATxmega32E5</li>
+<li>Peripherie: Maxim MAX14830</li>
+</ul>
+<h4 id="tools_8">Tools:</h4>
 <ul>
 <li>IDE: Atmel Studio + Atmel-ICE</li>
 </ul>
@@ -816,86 +876,58 @@ Gesamtnote Hauptstudium (D II): 1,5    </p>
 <p>Entwicklung einer universellen Build-Toolchain für Embedded-Software-Projekte in Python.</p>
 <h4 id="funktionsumfang-der-toolchain">Funktionsumfang der Toolchain:</h4>
 <ul>
-<li>Analyse der Formatierung und verwendeten Bezeichner hinsichtlich Naming-Conventions</li>
-<li>Statische Code-Analyse und MISRA-C:2012</li>
-<li>Automatisierte Ausführung von Unit-Tests</li>
-<li>Generierung der Projektdokumentation</li>
-<li>Kompilierung der Embedded-Software</li>
-<li>Ausführbarkeit auf einem Build-Server &amp; am Entwickler-PC</li>
+<li>Analyse der Code-Formatierung und Einhaltung von Namenskonventionen</li>
+<li>Durchführung von statischer Code-Analyse und MISRA-C:2012-Prüfungen</li>
+<li>Automatisierung der Unit-Test-Ausführung</li>
+<li>Automatische Generierung der Projektdokumentation aus dem Quellcode</li>
+<li>Steuerung des Kompilierungsprozesses der Embedded-Software</li>
+<li>Sicherstellung der Lauffähigkeit auf Build-Servern und Entwickler-PCs</li>
 </ul>
-<h4 id="tools_8">Tools:</h4>
+<h4 id="tools_9">Tools:</h4>
 <ul>
 <li>Formatierung: LLVM Clang</li>
 <li>Statische Code-Analyse: PC-Lint &amp; CppCheck</li>
-<li>Unit-Tests: VectorCAST</li>
+<li>Test-Framework: VectorCAST</li>
 <li>Projektdokumentation: Doxygen</li>
 <li>Standard-Compiler: MinGW</li>
 <li>Build-Umgebung: Jenkins</li>
 </ul>
 <hr />
 <h3 id="2016-08-2018-06-thomas-magnete_1">2016-08 - 2018-06 | Thomas Magnete</h3>
-<p>Entwicklung einer Embedded-Software in MISRA-C:2012 mit LIN-Interface zur Ansteuerung eines BLDC-Motors. Zusätzliche Entwicklung für den Systemtest: Eine Testumgebung in Python für das Embedded System mit zusätzlicher UART-Kommunikation für Event-Logging und u.a. Fault-Injection-Tests.</p>
-<h4 id="aufgaben_8">Aufgaben:</h4>
+<p>Entwicklung von Embedded-Software in MISRA-C:2012 mit LIN-Interface zur Ansteuerung eines BLDC-Motors. Zusätzliche Entwicklung für den Systemtest: Eine Testumgebung in Python für das Embedded-System mit zusätzlicher UART-Kommunikation für Event-Logging und u.a. Fault-Injection-Tests.</p>
+<h4 id="aufgaben_9">Aufgaben:</h4>
 <ul>
-<li>Betrachtung der funktionalen Sicherheit nach ISO26262 auf System und Software-Ebene</li>
-<li>Definition von Requirements und Testspezifikationen</li>
-<li>Erstellung der Software-Architektur</li>
-<li>Implementierung einer BLDC-Motoransteuerung mit Stromregelung und Geschwindigkeitssteuerung</li>
-<li>Implementierung einer Single-Shunt-Current-Reconstruction für die Stromregelung.</li>
-<li>Implementierung eines SPI-Moduls für den Zugriff ein externes EEPROM und den Motortreiber</li>
-<li>Implementierung eines LIN-Stacks für die Kommunikation mit der Python Testumgebung</li>
-<li>Implementierung von Sicherheitsfunktionen</li>
+<li>Anwendung der funktionalen Sicherheit (ISO 26262) auf System- und Software-Ebene</li>
+<li>Erarbeitung von Anforderungen und Testspezifikationen</li>
+<li>Erstellung der Software-Architektur für die Motoransteuerung</li>
+<li>Umsetzung einer BLDC-Motoransteuerung mit Stromregelung und Geschwindigkeitssteuerung</li>
+<li>Realisierung einer Single-Shunt-Strommessung zur Stromregelung</li>
+<li>Entwicklung eines SPI-Moduls für den Zugriff auf EEPROM und Motortreiber</li>
+<li>Entwicklung eines LIN-Stacks zur Kommunikation mit der Python-Testumgebung</li>
+<li>Implementierung von diversen Sicherheitsfunktionen</li>
 </ul>
-<h4 id="hardware_8">Hardware:</h4>
+<h4 id="hardware_9">Hardware:</h4>
 <ul>
 <li>MCU: Microchip dsPIC33EV128GM004</li>
-<li>Driver: TI DRV8305</li>
+<li>Treiber: TI DRV8305</li>
 </ul>
-<h4 id="tools_9">Tools:</h4>
+<h4 id="tools_10">Tools:</h4>
 <ul>
 <li>IDE: MPLAB X + PICkit 3</li>
-<li>Unit-Tests: VectorCAST</li>
+<li>Test-Framework: VectorCAST</li>
 <li>LIN-Adapter: PEAK PCAN-USB Pro FD</li>
 </ul>
 <hr />
 <h3 id="2015-roth-weber">2015 | ROTH + WEBER</h3>
-<p>Entwicklung einer Embedded-Software für ein Faltmaschinensystem.</p>
-<h4 id="aufgaben_9">Aufgaben:</h4>
-<ul>
-<li>Erstellung der Software-Architektur</li>
-<li>Implementierung eines USB-Kommunikations-Moduls</li>
-<li>Integration vorhandener Software-Module für CAN, I²C, UART &amp; 1Wire Kommunikation</li>
-<li>Erweiterung eines vorhandenen Bootloaders um die USB-Kommunikation</li>
-<li>Integration der Schrittmotoransteuerung</li>
-<li>Implementierung der Faltablaufsteuerung</li>
-</ul>
-<h4 id="hardware_9">Hardware:</h4>
-<ul>
-<li>MCU: Renesas RX600</li>
-</ul>
-<h4 id="tools_10">Tools:</h4>
-<ul>
-<li>IDE: Renesas e²Studio + J-Link</li>
-</ul>
-<hr />
-<h3 id="2014-roth-weber">2014 | ROTH + WEBER</h3>
-<p>Entwicklung einer Faltmaschinen-Simulationssoftware mit Benutzeroberfläche in Java.</p>
+<p>Entwicklung von Embedded-Software für ein Faltmaschinensystem.</p>
 <h4 id="aufgaben_10">Aufgaben:</h4>
 <ul>
-<li>Implementierung eines Lagenrechners für Längs- und Querfaltung mit Visualisierung</li>
-<li>Implementierung eines Rechners der die Dauer der Faltprozedur für verschiedene Parameter (u.a. Geschwindigkeit, Beschleunigung) berechnet und visualisiert.</li>
-</ul>
-<hr />
-<h3 id="2013-roth-weber">2013 | ROTH + WEBER</h3>
-<p>Portierung der Embedded-Software eines Druckersystems auf eine neue Hardware-Plattform, Refaktorisierung der Software-Architektur und Entwicklung neuer Software-Module.</p>
-<h4 id="aufgaben_11">Aufgaben:</h4>
-<ul>
-<li>Entwicklung der neuen Software-Architektur</li>
-<li>Modularisierung  vorhandener, wiederverwendbarer Software-Komponenten</li>
-<li>Implementierung von neuen Software-Modulen für CAN, I²C, UART &amp; 1Wire Kommunikation</li>
-<li>Integration des vorhandenen Bootloaders</li>
-<li>Implementierung einer Schrittmotoransteuerung</li>
-<li>Integration und Optimierung der Druckablaufsteuerung</li>
+<li>Entwurf der Software-Architektur für das Gesamtsystem</li>
+<li>Entwicklung eines USB-Kommunikationsmoduls</li>
+<li>Integration bestehender Software-Module für diverse Bussysteme (CAN, I²C, etc.)</li>
+<li>Erweiterung des Bootloaders um eine USB-Update-Funktionalität</li>
+<li>Einbindung der Schrittmotoransteuerung</li>
+<li>Umsetzung der Faltablauf-Steuerung</li>
 </ul>
 <h4 id="hardware_10">Hardware:</h4>
 <ul>
@@ -906,87 +938,113 @@ Gesamtnote Hauptstudium (D II): 1,5    </p>
 <li>IDE: Renesas e²Studio + J-Link</li>
 </ul>
 <hr />
-<h3 id="2013-roth-weber_1">2013 | ROTH + WEBER</h3>
-<p>Weiterentwicklung einer Software für die Generierung von Typenschildern für verschiedene Maschinentypen in Java.</p>
+<h3 id="2014-roth-weber">2014 | ROTH + WEBER</h3>
+<p>Entwicklung einer Faltmaschinen-Simulationssoftware mit Benutzeroberfläche in Java.</p>
+<h4 id="aufgaben_11">Aufgaben:</h4>
+<ul>
+<li>Entwicklung eines Lagenrechners für Längs- und Querfaltung inklusive Visualisierung</li>
+<li>Erstellung eines Rechners zur Berechnung und Visualisierung der Faltprozessdauer</li>
+</ul>
+<hr />
+<h3 id="2013-roth-weber">2013 | ROTH + WEBER</h3>
+<p>Portierung der Embedded-Software eines Druckersystems auf eine neue Hardware-Plattform, Refaktorierung der Software-Architektur und Entwicklung neuer Software-Module.</p>
 <h4 id="aufgaben_12">Aufgaben:</h4>
 <ul>
-<li>Erweiterung der Software für neue Maschinentypen</li>
+<li>Neuentwurf der Software-Architektur</li>
+<li>Refactoring und Modularisierung wiederverwendbarer Software-Komponenten</li>
+<li>Entwicklung neuer Software-Module für die Kommunikation via CAN, I²C, UART &amp; 1-Wire</li>
+<li>Integration des bestehenden Bootloaders in die neue Architektur</li>
+<li>Implementierung der Ansteuerung für den Schrittmotor</li>
+<li>Einbindung und Optimierung der Druckablaufsteuerung</li>
+</ul>
+<h4 id="hardware_11">Hardware:</h4>
+<ul>
+<li>MCU: Renesas RX600</li>
+</ul>
+<h4 id="tools_12">Tools:</h4>
+<ul>
+<li>IDE: Renesas e²Studio + J-Link</li>
+</ul>
+<hr />
+<h3 id="2013-roth-weber_1">2013 | ROTH + WEBER</h3>
+<p>Weiterentwicklung einer Software für die Generierung von Typenschildern für verschiedene Maschinentypen in Java.</p>
+<h4 id="aufgaben_13">Aufgaben:</h4>
+<ul>
+<li>Funktionserweiterung der Software zur Unterstützung neuer Maschinentypen</li>
 </ul>
 <hr />
 <h3 id="2013-roth-weber_2">2013 | ROTH + WEBER</h3>
 <p>Weiterentwicklung eines vorhandenen Scannersystems inklusive Portierung der Embedded-Software und Anpassung des Windows-USB-Treibers.</p>
-<h4 id="aufgaben_13">Aufgaben:</h4>
+<h4 id="aufgaben_14">Aufgaben:</h4>
 <ul>
-<li>Adaptierung der Embedded-Software an die neue Hardware-Plattform</li>
-<li>Erweiterung des USB-Treibers für die Kommunikation mit der angepassten Embedded-Software</li>
+<li>Portierung der Embedded-Software auf die neue Hardware-Plattform</li>
+<li>Anpassung des Windows-USB-Treibers für die Kommunikation mit der neuen Firmware</li>
 </ul>
-<h4 id="hardware_11">Hardware</h4>
+<h4 id="hardware_12">Hardware:</h4>
 <ul>
 <li>MCU: Cypress EZ-USB FX3</li>
 </ul>
 <hr />
 <h3 id="2012-roth-weber">2012 | ROTH + WEBER</h3>
-<p>Entwicklung einer Client-Server-basierten Lizenzverwaltung-Software in Python für verschiedene Maschinentypen.</p>
-<h4 id="aufgaben_14">Aufgaben:</h4>
+<p>Entwicklung einer Client-Server-basierten Lizenzverwaltungssoftware in Python für verschiedene Maschinentypen.</p>
+<h4 id="aufgaben_15">Aufgaben:</h4>
 <ul>
-<li>Implementierung einer Schnittstelle für den Datentransfer mit dem ERP-System</li>
-<li>Implementierung einer Trial-Lizenzen-Funktionalität</li>
+<li>Entwicklung einer Schnittstelle für den Datenaustausch mit dem ERP-System</li>
+<li>Realisierung einer Funktionalität für zeitlich begrenzte Trial-Lizenzen</li>
 </ul>
 <hr />
 <h3 id="2011-roth-weber">2011 | ROTH + WEBER</h3>
-<p>Entwicklung einer Embedded-Software für ein neues Scannersystem.</p>
-<h4 id="aufgaben_15">Aufgaben:</h4>
+<p>Entwicklung von Embedded-Software für ein neues Scannersystem.</p>
+<h4 id="aufgaben_16">Aufgaben:</h4>
 <ul>
-<li>Entwicklung der Software-Architektur</li>
-<li>Implementierung eines CAN-Stacks mit ISO-TP-Kommunikation</li>
-<li>Implementierung eines Bootloader mit CAN-Interface</li>
-<li>Implementierung der Scan-Ablaufsteuerung</li>
+<li>Konzeption der Software-Architektur</li>
+<li>Implementierung eines CAN-Stacks inklusive ISO-TP-Kommunikationsprotokoll</li>
+<li>Entwicklung eines Bootloaders mit Update-Funktion über das CAN-Interface</li>
+<li>Umsetzung der Ablaufsteuerung für den Scan-Vorgang</li>
 </ul>
-<h4 id="hardware_12">Hardware:</h4>
+<h4 id="hardware_13">Hardware:</h4>
 <ul>
 <li>MCU: Renesas M16C</li>
 </ul>
 <hr />
 <h3 id="2010-roth-weber">2010 | ROTH + WEBER</h3>
-<p>Entwicklung eines User-Mode-Treibers für die Kommunikation eines Scannersystems mit einem Windows PC via USB2.</p>
-<h4 id="aufgabe">Aufgabe:</h4>
-<ul>
-<li>Adaptierung der LibUSB für die USB-Kommunikation</li>
-<li>Implementierung der performancerelevanten Software-Komponenten als DLL in C.</li>
-<li>Implementierung eines socketbasierten Kommunikationsdienstes in Python mit XML-RPC-Interface, der den Zugriff auf die Treiber-DLL via ctypes realisiert.</li>
-</ul>
-<h4 id="hardware_13">Hardware:</h4>
-<ul>
-<li>MCU: Cypress EZ-USB FX2</li>
-</ul>
-<h4 id="tools_12">Tools:</h4>
-<ul>
-<li>Compiler: MinGw</li>
-</ul>
-<hr />
-<h3 id="2010-roth-weber_1">2010 | ROTH + WEBER</h3>
-<p>Entwicklung und einer Java-Applikation mit Benutzeroberfläche für die Konfiguration und Verwaltung eines Scannersystems.</p>
-<h4 id="aufgaben_16">Aufgaben:</h4>
-<ul>
-<li>Implementierung einer Benutzerverwaltung</li>
-<li>Implementierung einer Parameterverwaltung</li>
-<li>Implementierung einer Firmware-Update-Funktion</li>
-<li>Implementierung einer XMLRPC-basierten Kommunikation mit den Scannersystem</li>
-</ul>
-<hr />
-<h3 id="2010-roth-weber_2">2010 | ROTH + WEBER</h3>
-<p>Betreuung und Weiterentwicklung einer Embedded-Software für ein Faltmaschinensystem.</p>
+<p>Entwicklung eines User-Mode-Treibers für die Kommunikation eines Scannersystems mit einem Windows-PC via USB2.</p>
 <h4 id="aufgaben_17">Aufgaben:</h4>
 <ul>
-<li>Implementierung einer Endlosfaltprozedur</li>
-<li>Bugfixing</li>
+<li>Anpassung der LibUSB-Bibliothek für die USB-Kommunikation</li>
+<li>Entwicklung performancerelevanter Software-Komponenten als C-DLL</li>
+<li>Realisierung eines socketbasierten Kommunikationsdienstes in Python (XML-RPC, ctypes) für den Treiberzugriff</li>
 </ul>
 <h4 id="hardware_14">Hardware:</h4>
 <ul>
-<li>MCU: Philips 80C592</li>
+<li>MCU: Cypress EZ-USB FX2</li>
+</ul>
+<h4 id="tools_13">Tools:</h4>
+<ul>
+<li>Compiler: MinGW</li>
 </ul>
 <hr />
-<p>Elkenroth, 11.08.2025</p>
+<h3 id="2010-roth-weber_1">2010 | ROTH + WEBER</h3>
+<p>Entwicklung einer Java-Applikation mit Benutzeroberfläche für die Konfiguration und Verwaltung eines Scannersystems.</p>
+<h4 id="aufgaben_18">Aufgaben:</h4>
+<ul>
+<li>Umsetzung einer Benutzer- und Rechteverwaltung</li>
+<li>Realisierung der Verwaltung von Konfigurationsparametern</li>
+<li>Entwicklung einer Funktion für Firmware-Updates über die Applikation</li>
+<li>Implementierung der XML-RPC-basierten Kommunikation mit dem Scannersystem</li>
+</ul>
+<hr />
+<h3 id="2010-roth-weber_2">2010 | ROTH + WEBER</h3>
+<p>Betreuung und Weiterentwicklung von Embedded-Software für ein Faltmaschinensystem.</p>
+<h4 id="aufgaben_19">Aufgaben:</h4>
+<ul>
+<li>Implementierung einer Prozedur für Endlosfaltungen</li>
+<li>Laufende Fehleranalyse und -behebung (Bugfixing)</li>
+</ul>
+<h4 id="hardware_15">Hardware:</h4>
+<ul>
+<li>MCU: Philips 80C592</li>
+</ul>
 
 
 
@@ -1027,7 +1085,7 @@ Gesamtnote Hauptstudium (D II): 1,5    </p>
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2020 - 2025 Viktor Hildebrand
+      Copyright &copy; 2020 - 2026 Viktor Hildebrand
     </div>
   
   

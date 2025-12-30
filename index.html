@@ -108,7 +108,39 @@
           </span>
           <!--&nbsp;-->
           <span class="md-ellipsis">
-            .software
+            
+            
+            
+            
+            
+            
+            <span id="tw-header"></span>
+            <style>
+              #tw-header { border-right: 0.1em solid currentColor; padding-right: 2px; animation: blink 1.2s step-end infinite; }
+              @keyframes blink { 50% { border-color: transparent; } }
+            </style>
+            <script>
+              (function() {
+                var texts = [".software", ".solutions"];
+                var speed = 100;
+                var pause = 10000;
+                var el = document.getElementById('tw-header');
+                var idx = 0; var charIdx = 0; var isDeleting = false;
+                function type() {
+                  var current = texts[idx];
+                  el.textContent = current.substring(0, charIdx);
+                  if (isDeleting) { charIdx--; } else { charIdx++; }
+                  var delta = isDeleting ? speed / 2 : speed;
+                  if (!isDeleting && charIdx === current.length + 1) {
+                    delta = pause; isDeleting = true; charIdx--;
+                  } else if (isDeleting && charIdx === 0) {
+                    isDeleting = false; idx = (idx + 1) % texts.length; delta = 500;
+                  }
+                  setTimeout(type, delta);
+                }
+                type();
+              })();
+            </script>
           </span>
           
         </div>
@@ -381,9 +413,9 @@
 
 
 <h1 id="freelancer-viktor-hildebrand">Freelancer Viktor Hildebrand</h1>
-<h3 id="freiberuflicher-softwareentwicker">Freiberuflicher Softwareentwicker</h3>
+<h3 id="freiberuflicher-softwareentwickler">Freiberuflicher Softwareentwickler</h3>
 <ul>
-<li>20 Jahre Erfahrung in der Softwareentwicklung </li>
+<li>20 Jahre Erfahrung in der Softwareentwicklung</li>
 <li>Freiberuflich tätig seit 2020</li>
 </ul>
 <h3 id="dienstleistungen">Dienstleistungen</h3>
@@ -445,7 +477,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2020 - 2025 Viktor Hildebrand
+      Copyright &copy; 2020 - 2026 Viktor Hildebrand
     </div>
   
   
